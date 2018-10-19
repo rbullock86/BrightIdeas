@@ -1,0 +1,19 @@
+<div>
+    <h3>Login</h3>
+    @model LoginUser
+    <p><span style="color: red;" asp-validation-for="LoginEmail"></span></p>
+    <form asp-action="ProcessLogin" method="POST">
+        <table>
+            <tr>
+                <td>Email</td>
+                <td><input asp-for="LoginEmail"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input asp-for="LoginPassword"></td>
+            </tr>
+            <tr><td><button type="submit">Submit</button></td></tr>
+        </table>
+    </form>
+
+</div>

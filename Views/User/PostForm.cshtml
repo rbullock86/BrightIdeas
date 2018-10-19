@@ -1,0 +1,9 @@
+<div>
+    <p><span style="color: red;" asp-validation-for="PostContent"></span></p>
+    @model Post
+    <form asp-action="PostCreate" asp-controller="User" asp-route-_UserId=@ViewBag._UserId method="POST">
+        <input type="hidden" asp-for="UserId" value=@ViewBag._UserId>
+        <input type="text" size="75%" asp-for="PostContent">
+        <button type="submit">Idea!</button>
+    </form>
+</div>

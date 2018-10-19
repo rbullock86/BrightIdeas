@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bright Ideas</title>
+</head>
+<body>
+        <div>
+            <span>
+                <a asp-action="Logout" asp-controller="User">Logout</a>  |
+                <a asp-action="UserHome" asp-controller="User" asp-route-_UserId=@ViewBag._UserId>Bright Ideas</a>
+            </span>
+        </div>
+    <div>
+        <h2 style="display: inline-block;">
+            @ViewBag.ThePost.PostUser.LastName :
+        </h2>
+        <p style="border: 1px solid black; display: inline-block; padding: 5px;">
+                @ViewBag.ThePost.PostContent
+        </p>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>Alias</th>
+                <th>Name</th>
+            </tr>
+                @foreach(var dude in @ViewBag.LikeUsers)
+                {
+                    <tr>
+                        <td>
+                            <a asp-action="ShowUser" asp-controller="User" asp-route-_UserId=@ViewBag._UserId asp-route-UserToShow=@dude.LikeUser.UserId >@dude.LikeUser.LastName</a>
+                        </td>
+                        <td>
+                            @dude.LikeUser.FirstName
+                        </td>
+                    </tr>
+                }
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>
+            Name: @ViewBag.ShownUserName
+        </p>
+        <p>
+            Alias: @ViewBag.ShownUserAlias
+        </p>
+        <p>
+            Email: @ViewBag.ShownUserEmail
+        </p>
+    </div>
+    <div>
+        <span>
+            <a asp-action="Logout" asp-controller="User">Logout</a>  |
+            <a asp-action="UserHome" asp-controller="User" asp-route-_UserId=@ViewBag._UserId>Bright Ideas</a>
+        </span>
+    </div>
+    <div>
+        <p>Total Number of Posts: @ViewBag.NumberOfPosts</p>
+        <p>Total Number of Likes: @ViewBag.NumberOfLikes</p>
+    </div>
+</body>
+</html>

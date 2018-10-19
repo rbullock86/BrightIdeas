@@ -1,0 +1,52 @@
+@using System.Linq;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bright Ideas</title>
+</head>
+<style>
+    .Top-Bar-Bit{
+        display: inline-block;
+    }
+
+    .Top-Bar-Bit-Right{
+        display: inline-block;
+        margin-left: 250px;
+    }
+</style>
+<body>
+    <div  class="Top-Bar">
+        <div class="Top-Bar-Bit">
+            <h1>Hi @ViewBag.UserAlias!</h1>
+        </div>
+        <div class="Top-Bar-Bit-Right">
+            <h3><a asp-controller="User" asp-action="Logout">Logout</a></h3>
+        </div>
+    </div>
+    <div>        
+        @await Html.PartialAsync("PostForm.cshtml")
+    </div>
+    @foreach(var post in @ViewBag.Posts)
+    {
+        <div>
+            <span style="display: inline-block;">
+                <a asp-action="ShowUser" asp-controller="User" asp-route-_UserId=@ViewBag._UserId asp-route-UserToShow=@post.UserId>@post.PostUser.FirstName</a> 
+                says:
+            </span>
+            <p style="border: 1px solid black; display: inline-block; padding: 5px;">@post.PostContent</p>
+            
+            <p> 
+                <a asp-action="LikePost" asp-controller="User" asp-route-_UserId=@ViewBag._UserId asp-route-_PostId=@post.PostId>Like</a>     
+                <a asp-action="ShowPost" asp-controller="User" asp-route-_UserId=@ViewBag._UserId asp-route-_PostId=@post.PostId>@post.Likes.Count People</a> like this.
+                      @if(@post.UserId == @ViewBag._UserId)
+                      {
+                          <a asp-action="DeletePost" asp-controller="User" asp-route-_PostId=@post.PostId>Delete</a>
+                      }
+            </p>
+        </div>
+    }
+</body>
+</html>

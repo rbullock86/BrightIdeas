@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bright Ideas</title>
+</head>
+<style>
+    .IndexChunk{
+        display: inline-block;
+        border: 2px solid black;
+        padding: 10px;
+        margin: 10px;
+        vertical-align: top;
+    }
+</style>
+<body>
+    <div>
+        <h1>Welcome to Bright Ideas</h1>
+    </div>
+    <div class="IndexChunk">
+        @await Html.PartialAsync("Register.cshtml")
+    </div>
+    <div class="IndexChunk">
+        @await Html.PartialAsync("Login.cshtml")
+    </div>
+</body>
+</html>
