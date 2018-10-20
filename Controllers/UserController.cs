@@ -20,6 +20,13 @@ namespace BeltExam.Controllers
         }
 
         [HttpGet]
+        [Route("")]
+        public IActionResult EmptyRoute()
+        {
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
         [Route("/Users")]
         public IActionResult Index()
         {
